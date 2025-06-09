@@ -1,13 +1,12 @@
 import moment from "moment";
-import SampleData from "../sample-csv-data.constant";
+import SampleData, { SalesRecord } from "../sample-csv-data.constant";
 
 export const getRevenueTrends = () => {
     const salesData = SampleData;
 
     const revenueByDate: Record<string, number> = {};
 
-    salesData.forEach((item: any) => {
-        // Parse and format date to YYYY-MM-DD
+    salesData.forEach((item: SalesRecord) => {
         const formattedDate = moment(item.date, 'DD-MM-YYYY').format('YYYY-MM-DD');
 
         if (!revenueByDate[formattedDate]) {

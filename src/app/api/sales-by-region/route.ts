@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
 import { prepareSalesByRegion } from './sales-by-region.service';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     const regionSales = prepareSalesByRegion();
     return NextResponse.json(regionSales);
 }
